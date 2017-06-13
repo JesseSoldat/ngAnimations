@@ -2,3 +2,15 @@
 (click)="onToggleClickInfo()"
 (mousedown)="clickInfo = 'mousedown'"
 [@clickedState]="clickInfo"></div>
+<hr>
+<div>
+  <input type="number" name="numInput" value="0"
+  (input)="numberEntered = $event.target.value">
+  <br><br>
+  <span *ngFor="let num of numbers" 
+  id="spanNum" align="center"
+  [@numberEnteredState]="numberEntered == num ? 'selected' : 'unselected' ">
+    {{num}}
+  </span>
+</div>
+<hr>

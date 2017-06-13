@@ -1,7 +1,6 @@
-/*#simple {
-  width: 100px;
-  height: 100px;
-  color: white;
-  background: pink
-  ;
-}*/
+#spanNum {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 2%;
+
+}
