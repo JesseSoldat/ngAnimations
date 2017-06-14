@@ -1,4 +1,4 @@
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, transition, style, animate, group } from '@angular/animations';
 
 // export const showStateTrigger = trigger('showState', [
 //   transition('void => *', [
@@ -34,3 +34,27 @@ export const animateStateTrigger = trigger('animateState', [
     }))
   ])
 ]);
+
+export const listStateTrigger = trigger('listState', [
+  transition(':enter', [
+    style({
+      opacity: 0,
+      background: 'white'
+    }),
+    group([
+      animate(500, style({
+        opacity: 0.8
+      })),
+      animate('1000ms ease-out', style({
+        background: 'pink'
+      })),
+    ]),
+    animate(1000, style({
+      background: 'lightblue',
+      opacity: 1
+    }))
+  ]),
+  transition(':leave', animate(500, style({
+    opacity: 0
+  })))
+])

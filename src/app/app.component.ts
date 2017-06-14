@@ -1,6 +1,7 @@
+import { rainbowBoxTrigger } from './animations/keyframes';
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from './animations/slide-in.animation';
-import { showStateTrigger, animateStateTrigger } from './animations/void-all-animations';
+import { showStateTrigger, animateStateTrigger, listStateTrigger } from './animations/void-all-animations';
 import { clickedStateTrigger, numberEnteredStateTrigger } from './animations/basic-animations';
 
 @Component({
@@ -14,7 +15,9 @@ import { clickedStateTrigger, numberEnteredStateTrigger } from './animations/bas
     clickedStateTrigger,
     numberEnteredStateTrigger,
     showStateTrigger,
-    animateStateTrigger
+    animateStateTrigger,
+    listStateTrigger,
+    rainbowBoxTrigger
   ]
 })
 export class AppComponent implements OnInit {
@@ -24,9 +27,10 @@ export class AppComponent implements OnInit {
   isShown: boolean = false;
   width: number = 500;
   animate: boolean = false;
+  testResults: Array<number> = [];
+  color: 'whiteState';
 
   ngOnInit() {
-    // console.log(this.numbers);  
   }
 
   onToggleClickInfo() {
@@ -35,6 +39,9 @@ export class AppComponent implements OnInit {
       this.clickInfo = 'default';
     }, 1500);
     // this.clickInfo = this.clickInfo === 'default' ? 'clicked' : 'default';
+  }
+  onAddElement() {
+    this.testResults.push(Math.random() * 100);
   }
  
 }

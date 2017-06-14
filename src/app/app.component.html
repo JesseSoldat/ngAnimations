@@ -24,3 +24,11 @@
 <p [@animateState]="animate ? 'animated' : 'noAnimation'"
   [ngStyle]="{'width.px': width}"
 >Shrinkable</p>
+
+<button (click)="onAddElement()">Add Element</button>
+<div *ngFor="let res of testResults"  @listState
+ class="test-result">
+  {{res}}
+</div>
+
+<div id="rainbow" @rainbowState></div>
