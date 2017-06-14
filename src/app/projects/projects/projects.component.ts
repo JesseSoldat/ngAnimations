@@ -19,8 +19,10 @@ export class ProjectsComponent implements OnInit {
       .subscribe(
         (projects: Project[]) => {
           this.progress = 'finished';
-          this.projects = projects;
-      })
+          this.projects = projects;         
+      });
   }
+
+  
 
 }

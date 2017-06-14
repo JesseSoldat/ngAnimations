@@ -1,3 +1,22 @@
-<p>
-  project works!
-</p>
+<h3>{{project.name}}
+  <span class="label"
+    [ngClass]="getProjectStatusClass()">
+    {{project.status}}
+  </span>
+</h3>
+<hr>
+<p>{{project.description}}</p> 
+<select class="form-control">
+  <option value="active"
+    [selected]="project.status === 'active'">Active</option>
+  <option value="inactive"
+    [selected]="project.status === 'inactive'">Inactive</option>
+  <option value="critical"
+    [selected]="project.status === 'critical'">Critical</option>
+</select>
+<button class="btn btn-primary"
+  (click)="onUpdateStatus()"
+>Update Status</button>
+<button class="btn btn-danger"
+  (click)="onDelete()"
+>Delete Project</button>

@@ -1,0 +1,17 @@
+ :host {
+   display: block;
+   border-radius: 3px;
+   border: 1px solid black;
+   box-shadow: 4px 4px 5px #ccc;
+   margin: 20px 0;
+   padding: 20px;
+ }
+
+ :host(.inactive) {
+   color: #ccc;
+ }
+
+ .form-control {
+   display: inline-block;
+   width: 50%;
+ }

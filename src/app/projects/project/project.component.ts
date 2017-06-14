@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Project } from './../project.model';
 
 @Component({
   selector: 'app-project',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
-
+  @Input() project: Project;
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-}
+  getProjectStatusClass() {
+    return {
+      'label-success': this.project.status === 'active',
+      'label-default': this.project.status === 'inactive',
+      'label-danger': this.project.status === 'critical'
+    };
+  }
+       
+  
+
+} 

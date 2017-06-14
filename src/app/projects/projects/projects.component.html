@@ -24,6 +24,7 @@
   <div class="col-xs-12" style="overflow: hidden">
     <app-new-project
       *ngIf="createNew"
+      
       >
     </app-new-project>
   </div>
@@ -38,8 +39,12 @@
           *ngIf="progress != 'finished'">
 
         </div>
-        <app-project>
-        </app-project>
+       
     </div>
+     <app-project 
+      *ngFor="let project of projects; let i = index"
+      [project]="project"
+        >
+    </app-project>
   </div>
 </div>
