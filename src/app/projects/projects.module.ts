@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { ProjectService } from './projects.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectRoutingModule } from './projects-routing.module';
@@ -16,10 +18,14 @@ import { UsersComponent } from './users/users.component';
   ],
   imports: [
     ProjectRoutingModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
 
+  ],
+  providers: [
+    ProjectService
   ]
 })
 export class ProjectsModule {}

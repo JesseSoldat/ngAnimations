@@ -1,3 +1,45 @@
-<p>
-  projects works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>JLab Projects following along Udemy</h3>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-default"
+      (click)="createNew = true"
+      *ngIf="!createNew">
+      Create new Project
+    </button>
+    <button class="btn btn-danger"
+      *ngIf="createNew"
+      (click)="createNew = false">
+      Cancel
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12" style="overflow: hidden">
+    <app-new-project
+      *ngIf="createNew"
+      >
+    </app-new-project>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="loading-bar"
+      *ngIf="!projects">
+        <div class="loading-bar-element"
+          *ngIf="progress != 'finished'">
+
+        </div>
+        <app-project>
+        </app-project>
+    </div>
+  </div>
+</div>
