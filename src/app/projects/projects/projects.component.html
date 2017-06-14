@@ -43,9 +43,11 @@
        
     </div>
      <app-project 
-      *ngFor="let project of projects; let i = index"
+      *ngFor="let project of displayedProjects; let i = index"
       (click)="markedProjectIndex = i"
       [@markedState]="markedProjectIndex === i ? 'marked' : 'default'"
+      @itemState
+      (@itemState.done)="onItemAnimated($event, i)"
       [project]="project"
       (statusUpdated)="onStatusUpdated($event, i)"
       (projectDeleted)="onProjectDeleted(i)"
