@@ -1,34 +1,22 @@
-<div 
-(click)="onToggleClickInfo()"
-(mousedown)="clickInfo = 'mousedown'"
-[@clickedState]="clickInfo"></div>
-<hr>
-<div>
-  <input type="number" name="numInput" value="0"
-  (input)="numberEntered = $event.target.value">
-  <br><br>
-  <span *ngFor="let num of numbers" 
-  id="spanNum" align="center"
-  [@numberEnteredState]="numberEntered == num ? 'selected' : 'unselected' ">
-    {{num}}
-  </span>
-</div>
-<hr>
-<button (click)="isShown = !isShown">Toggle me!</button>
-<p @showState
-*ngIf="isShown">You can see me now!</p>
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Project name</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a [routerLink]="['/']">Home</a></li>
+        <li><a [routerLink]="['examples']">Examples</a></li>
+        <li><a [routerLink]="['projects']" >Projects</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
 
-<button (click)="width = width - 50">Shrink me!</button>
-<button (click)="width = width + 50">Enlarge me!</button>
-<button (click)="animate = !animate">Animate me!</button>
-<p [@animateState]="animate ? 'animated' : 'noAnimation'"
-  [ngStyle]="{'width.px': width}"
->Shrinkable</p>
-
-<button (click)="onAddElement()">Add Element</button>
-<div *ngFor="let res of testResults"  @listState
- class="test-result">
-  {{res}}
-</div>
-
-<div id="rainbow" @rainbowState></div>
+<router-outlet></router-outlet>

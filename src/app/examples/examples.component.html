@@ -1,0 +1,37 @@
+<div 
+(click)="onToggleClickInfo()"
+(mousedown)="clickInfo = 'mousedown'"
+[@clickedState]="clickInfo"></div>
+<hr>
+<div>
+  <input type="number" name="numInput" value="0"
+  (input)="numberEntered = $event.target.value">
+  <br><br>
+  <span *ngFor="let num of numbers" 
+  id="spanNum" align="center"
+  [@numberEnteredState]="numberEntered == num ? 'selected' : 'unselected' ">
+    {{num}}
+  </span>
+</div>
+<hr>
+<button (click)="isShown = !isShown">Toggle me!</button>
+<p @showState
+*ngIf="isShown">You can see me now!</p>
+
+<button (click)="width = width - 50">Shrink me!</button>
+<button (click)="width = width + 50">Enlarge me!</button>
+<button (click)="animate = !animate">Animate me!</button>
+<p [@animateState]="animate ? 'animated' : 'noAnimation'"
+  [ngStyle]="{'width.px': width}"
+>Shrinkable</p>
+
+<button (click)="onAddElement()">Add Element</button>
+<div *ngFor="let res of testResults"  
+@listState
+(@listState.start)="onAnimationsHook($event, 'start')"
+(@listState.done)="onAnimationsHook($event, 'done')"
+ class="test-result">
+  {{res}}
+</div>
+
+<div id="rainbow" @rainbowState></div>
