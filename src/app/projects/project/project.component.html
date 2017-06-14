@@ -6,7 +6,7 @@
 </h3>
 <hr>
 <p>{{project.description}}</p> 
-<select class="form-control">
+<select class="form-control" #projectStatus>
   <option value="active"
     [selected]="project.status === 'active'">Active</option>
   <option value="inactive"
@@ -15,7 +15,7 @@
     [selected]="project.status === 'critical'">Critical</option>
 </select>
 <button class="btn btn-primary"
-  (click)="onUpdateStatus()"
+  (click)="onUpdateStatus(projectStatus.value)"
 >Update Status</button>
 <button class="btn btn-danger"
   (click)="onDelete()"

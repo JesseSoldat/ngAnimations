@@ -44,6 +44,8 @@
      <app-project 
       *ngFor="let project of projects; let i = index"
       [project]="project"
+      (statusUpdated)="onStatusUpdated($event, i)"
+      (projectDeleted)="onProjectDeleted(i)"
         >
     </app-project>
   </div>

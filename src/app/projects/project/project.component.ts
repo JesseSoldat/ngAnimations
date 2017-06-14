@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Project } from './../project.model';
 
 @Component({
@@ -8,6 +8,8 @@ import { Project } from './../project.model';
 })
 export class ProjectComponent implements OnInit {
   @Input() project: Project;
+  @Output() statusUpdated = new EventEmitter<string>();
+  @Output() projectDeleted = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {}
@@ -18,6 +20,14 @@ export class ProjectComponent implements OnInit {
       'label-default': this.project.status === 'inactive',
       'label-danger': this.project.status === 'critical'
     };
+  }
+
+  onUpdateStatus(newStatus: string) {
+    this.statusUpdated.emit(newStatus);
+  }
+
+  onDelete() {
+    this.projectDeleted.emit();
   }
        
   

@@ -22,6 +22,13 @@ export class ProjectsComponent implements OnInit {
           this.projects = projects;         
       });
   }
+  onStatusUpdated(newStatus: string, id: number) {
+    this.projects[id].status = newStatus;
+    
+  }
+  onProjectDeleted(i) {
+    this.projects.splice(i, 1);    
+  }
 
   
 
