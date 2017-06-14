@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { routerTransition } from './animations/slide-in.animation';
+import { showStateTrigger, animateStateTrigger } from './animations/void-all-animations';
 import { clickedStateTrigger, numberEnteredStateTrigger } from './animations/basic-animations';
 
 @Component({
@@ -12,17 +12,21 @@ import { clickedStateTrigger, numberEnteredStateTrigger } from './animations/bas
   
   animations: [
     clickedStateTrigger,
-    numberEnteredStateTrigger
+    numberEnteredStateTrigger,
+    showStateTrigger,
+    animateStateTrigger
   ]
 })
 export class AppComponent implements OnInit {
   clickInfo = 'default';
   numbers: Array<number> = Array.from(Array(10).keys());
   numberEntered: number = 0;
+  isShown: boolean = false;
+  width: number = 500;
+  animate: boolean = false;
 
   ngOnInit() {
-    // console.log(this.numbers);
-    
+    // console.log(this.numbers);  
   }
 
   onToggleClickInfo() {

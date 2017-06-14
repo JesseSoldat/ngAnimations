@@ -14,3 +14,13 @@
   </span>
 </div>
 <hr>
+<button (click)="isShown = !isShown">Toggle me!</button>
+<p @showState
+*ngIf="isShown">You can see me now!</p>
+
+<button (click)="width = width - 50">Shrink me!</button>
+<button (click)="width = width + 50">Enlarge me!</button>
+<button (click)="animate = !animate">Animate me!</button>
+<p [@animateState]="animate ? 'animated' : 'noAnimation'"
+  [ngStyle]="{'width.px': width}"
+>Shrinkable</p>
