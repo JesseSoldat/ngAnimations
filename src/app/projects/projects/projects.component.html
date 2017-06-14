@@ -24,7 +24,8 @@
   <div class="col-xs-12" style="overflow: hidden">
     <app-new-project
       *ngIf="createNew"
-      
+      (projectCreated)="onProjectCreated($event)"
+      (creationCanceled)="createNew = false"
       >
     </app-new-project>
   </div>
@@ -43,6 +44,8 @@
     </div>
      <app-project 
       *ngFor="let project of projects; let i = index"
+      (click)="markedProjectIndex = i"
+      [@markedState]="markedProjectIndex === i ? 'marked' : 'default'"
       [project]="project"
       (statusUpdated)="onStatusUpdated($event, i)"
       (projectDeleted)="onProjectDeleted(i)"

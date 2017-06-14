@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Project } from './../project.model';
+import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,6 +9,8 @@ import { NgForm } from '@angular/forms';
 })
 export class NewProjectComponent implements OnInit {
   @ViewChild('f') form: NgForm;
+  @Output() creationCanceled = new EventEmitter<void>();
+  @Output() projectCreated = new EventEmitter<Project>();
   availableStatus = ['active','inactive','critical'];
   constructor() { }
 
@@ -15,12 +18,17 @@ export class NewProjectComponent implements OnInit {
   }
 
   onCreateProject() {
-
+    this.projectCreated.emit({
+      name: this.form.value.name,
+      description: this.form.value.description,
+      status: this.form.value.status
+    });
+    this.form.reset();
   }
 
   onCancel() {
     this.form.reset();
-
+    this.creationCanceled.emit();
   }
 
 }
