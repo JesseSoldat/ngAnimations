@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { routerTransition } from './animations/slide-in.animation';
 import { showStateTrigger, animateStateTrigger, listStateTrigger } from './animations/void-all-animations';
 import { clickedStateTrigger, numberEnteredStateTrigger } from './animations/basic-animations';
 import { rainbowBoxTrigger } from './animations/keyframes';
+import { routeFadeStateTrigger, routeSlideStateTrigger } from './../shared/route-animation';
 
 
 @Component({
@@ -17,10 +18,13 @@ import { rainbowBoxTrigger } from './animations/keyframes';
     showStateTrigger,
     animateStateTrigger,
     listStateTrigger,
-    rainbowBoxTrigger
+    rainbowBoxTrigger,
+    routeFadeStateTrigger,
+    routeSlideStateTrigger
   ]
 })
 export class ExamplesComponent implements OnInit {
+  @HostBinding('@routeSlideState')  routeAnimation = true;
   clickInfo = 'default';
   numbers: Array<number> = Array.from(Array(10).keys());
   numberEntered: number = 0;

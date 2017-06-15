@@ -7,14 +7,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Project name</a>
+      <!--<a class="navbar-brand" [routerLink]="['/']">jAnime</a>-->
+      <a class="navbar-brand">jAnime</a>
+      
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a [routerLink]="['/']">Home</a></li>
-        <li><a [routerLink]="['examples']">Examples</a></li>
-        <li><a [routerLink]="['projects']" >Projects</a></li>
-        <li><a [routerLink]="['projects', 'users']">Users</a></li>
+        <!--<li routerLinkActive="active-link"><a [routerLink]="['/']">Home</a></li>-->
+        <li routerLinkActive="active-link"><a [routerLink]="['examples']">Examples</a></li>
+        <li routerLinkActive="active-link"><a [routerLink]="['projects']" >Projects</a></li>
+        <li routerLinkActive="active-link"><a [routerLink]="['projects', 'users']">Users</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

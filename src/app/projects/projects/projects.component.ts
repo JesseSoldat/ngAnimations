@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { routeFadeStateTrigger, routeSlideStateTrigger } from './../../shared/route-animation';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { ProjectService } from './../projects.service';
 import { Project } from './../project.model';
 import { AnimationEvent } from '@angular/animations';
@@ -11,10 +12,13 @@ import { markedTrigger, itemStateTrigger, slideStateTrigger } from './animations
   animations: [ 
     markedTrigger,
     itemStateTrigger,
-    slideStateTrigger
+    slideStateTrigger,
+    routeFadeStateTrigger,
+    routeSlideStateTrigger
   ]
 })
 export class ProjectsComponent implements OnInit {
+  @HostBinding('@routeSlideState') routeAnimation = true;
   createNew: boolean = false;
   displayedProjects: Project[] = [];
   projects: Project[];
