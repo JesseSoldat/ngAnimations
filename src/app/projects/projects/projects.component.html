@@ -24,6 +24,7 @@
   <div class="col-xs-12" style="overflow: hidden">
     <app-new-project
       *ngIf="createNew"
+      @slideState
       (projectCreated)="onProjectCreated($event)"
       (creationCanceled)="createNew = false"
       >

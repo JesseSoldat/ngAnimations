@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from './../projects.service';
 import { Project } from './../project.model';
 import { AnimationEvent } from '@angular/animations';
-import { markedTrigger, itemStateTrigger } from './animations';
+import { markedTrigger, itemStateTrigger, slideStateTrigger } from './animations';
 
 @Component({
   selector: 'app-projects',
@@ -10,7 +10,8 @@ import { markedTrigger, itemStateTrigger } from './animations';
   styleUrls: ['./projects.component.css'],
   animations: [ 
     markedTrigger,
-    itemStateTrigger
+    itemStateTrigger,
+    slideStateTrigger
   ]
 })
 export class ProjectsComponent implements OnInit {

@@ -3,6 +3,9 @@
   margin: 0 auto;
   width: 95%;
 }
+.inactive { 
+  border: 1px solid #ccc;
+}
 
 .loading-bar {
   width: 200px;
